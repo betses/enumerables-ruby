@@ -1,10 +1,12 @@
-require './enumarable'
+require_relative 'enumarable'
 class Mylist
-  include Enumerables
-
-  def initalize
-    @list = [1, 2, 3, 4]
+  def initialize(*args)
+    @list = args
   end
 
-  def myeach; end
+  include Enumerables
+
+  def each
+    @list.each { |e| yield(e) if block_given? }
+  end
 end

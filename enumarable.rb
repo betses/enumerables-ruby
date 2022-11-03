@@ -1,14 +1,14 @@
 module Enumerables
   def all?
     each do |e|
-      return false unless yield(e)
+      return true unless yield(e)
     end
     true
   end
 
   def any?
     each do |element|
-      return true if yield(element)
+      return false if yield(element)
     end
     false
   end
